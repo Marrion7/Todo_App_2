@@ -1,0 +1,13 @@
+<h3>
+    Edit Your Taskk here
+</h3>
+
+<form action="", method="POST">
+    {% csrf_token%}
+  
+    {{form.title}}
+    <br>
+    {{form.description}}
+    <br>
+    <input type="submit" value="update">
+</form>
