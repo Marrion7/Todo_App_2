@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
 from . import models
 from . import forms
 
 # Create your views here.
-
 
 
 def ListlViews(request):
@@ -53,3 +53,14 @@ def Updateview(request, pk):
         'tasks':tasks, 'form':form
     }
     return render(request,'base/task_update.html', context)
+
+def Delete(request, pk):
+    tasks = models.Task.objects.get(id=pk)
+    
+    if request.method == 'POST':
+       tasks.delete()
+       return redirect('tasks')
+    
+    context = {'tasks':tasks}
+    return render(request, 'base/task_delete.html', context)
+    pass

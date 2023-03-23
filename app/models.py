@@ -9,7 +9,7 @@ class Task(models.Model):
     description = models.TextField(max_length=1000, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
-    
+ 
     
     
     def __str__(self):
